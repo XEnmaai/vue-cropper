@@ -576,8 +576,8 @@ export default {
       if (this.img.substr(0, 4) !== "data") {
         img.crossOrigin = "";
       }
-
-      if (this.isIE) {
+      //IE浏览器且不是base64图片,进行网络请求
+      if (this.isIE && this.img.substr(0, 4) !== "data") {
         var xhr = new XMLHttpRequest();
         xhr.onload = function() {
           var url = URL.createObjectURL(this.response);
